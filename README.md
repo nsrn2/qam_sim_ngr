@@ -1,98 +1,88 @@
-Diagrammes de Constellation QAM avec Ajustements pour 
+# Diagrammes de Constellation QAM avec Ajustements pour \( p = 3 \)
 
-Ce projet Python génère des diagrammes de constellations QAM (Quadrature Amplitude Modulation) avec des ajustements spécifiques pour différentes puissances, notamment . Le programme calcule les dimensions de la grille, applique des exclusions symétriques, et trace le diagramme résultant. Ce README fournit une explication détaillée de la structure du projet, des formules utilisées, et de la manière de lire les diagrammes.
+Ce projet Python génère des diagrammes de constellations QAM (Quadrature Amplitude Modulation) avec des ajustements spécifiques pour différentes puissances, notamment \( p = 3 \). Le programme calcule les dimensions de la grille, applique des exclusions symétriques, et trace le diagramme résultant. Ce README fournit une explication détaillée de la structure du projet, des formules utilisées, et de la manière de lire les diagrammes.
 
-Fonctionnalités
+---
 
-Calcul dynamique des dimensions de la grille : Les dimensions (lignes et colonnes) sont calculées automatiquement en fonction de la puissance .
+## Aperçu du Projet
 
-Gestion des puissances impaires : Le script applique des ajustements spéciaux pour les puissances impaires comme .
+### Diagramme QAM pour \( p = 3 \)
+![Diagramme QAM \( p = 3 \)](qam_p=3_plot.jpg)
 
-Exclusions symétriques : Certaines points sont exclus de manière symétrique pour respecter les caractéristiques de la modulation QAM.
+- **Points bleus** : Symboles valides utilisés pour la modulation.
+- **Points rouges** : Symboles exclus selon les règles définies.
 
-Visualisation claire des constellations : Le diagramme distingue les symboles valides (en bleu) et exclus (en rouge).
+### Exemple de Sortie du Terminal
+![Sortie Terminal](terminal_output.jpg)
 
-Structure du Projet
+Le terminal affiche les dimensions de la grille et les exclusions pour chaque puissance.
 
-script_qam.py : Contient les fonctions principales pour le calcul des dimensions, la gestion des exclusions, et le tracé des diagrammes.
+---
 
-qam_p=3_plot.jpg : Exemple de diagramme pour .
+## Fonctionnalités
 
-terminal_output.jpg : Exemple de sortie du terminal avec les résultats calculés.
+1. **Calcul dynamique des dimensions de la grille** : Les dimensions (lignes et colonnes) sont calculées automatiquement en fonction de la puissance \( p \).
+2. **Gestion des puissances impaires** : Le script applique des ajustements spéciaux pour les puissances impaires comme \( p = 3, 5, 7, 9 \).
+3. **Exclusions symétriques** : Certaines points sont exclus de manière symétrique pour respecter les caractéristiques de la modulation QAM.
+4. **Visualisation claire des constellations** : Le diagramme distingue les symboles valides (en bleu) et exclus (en rouge).
 
-Explications des Formules
+---
 
-Fonction calculer_lignes_colonnes(p)
+## Structure du Projet
 
-Cette fonction calcule les dimensions de la grille (lignes et colonnes) et le nombre d'exclusions  pour une puissance . Les calculs dépendent de la parité de  :
+- **`script_qam.py`** : Contient les fonctions principales pour le calcul des dimensions, la gestion des exclusions, et le tracé des diagrammes.
+- **`qam_p=3_plot.jpg`** : Exemple de diagramme pour \( p = 3 \).
+- **`terminal_output.jpg`** : Exemple de sortie du terminal avec les résultats calculés.
 
-Puissance paire :
+---
 
-Puissance impaire :
+## Explications des Formules
 
-Des ajustements supplémentaires sont faits pour .
+### Fonction `calculer_lignes_colonnes(p)`
 
-Fonction plot_qam_constellation(lignes, colonnes, soustraction, p)
+Cette fonction calcule les dimensions de la grille (lignes et colonnes) et le nombre d'exclusions \( soustraction \) pour une puissance \( p \). Les calculs dépendent de la parité de \( p \) :
 
-Grille des points :
+1. **Puissance paire** :
+   \[
+   \text{lignes} = \text{colonnes} = 2^{p / 2}, \quad \text{soustraction} = 0
+   \]
 
-Une grille de points est générée en utilisant  et  avec les dimensions calculées.
+2. **Puissance impaire** :
+   \[
+   \text{lignes} = \text{colonnes} = 2^{(p // 2) + 1}, \quad \text{soustraction} = 2^{p - 3}
+   \]
 
-Les exclusions sont appliquées symétriquement à travers les quatre quadrants.
+   Des ajustements supplémentaires sont faits pour \( p = 3, 5, 7, 9 \).
 
-Exclusions symétriques :
+### Fonction `plot_qam_constellation(lignes, colonnes, soustraction, p)`
 
-Les exclusions sont réparties uniformément dans un quadrant puis reproduites dans les autres quadrants pour préserver la symétrie.
+1. **Grille des points** :
+   - Une grille de points est générée en utilisant \( X \) et \( Y \) avec les dimensions calculées.
+   - Les exclusions sont appliquées symétriquement à travers les quatre quadrants.
 
-Tracé des points :
+2. **Exclusions symétriques** :
+   - Les exclusions sont réparties uniformément dans un quadrant puis reproduites dans les autres quadrants pour préserver la symétrie.
 
-Les points valides sont tracés en bleu et les points exclus en rouge.
+3. **Tracé des points** :
+   - Les points valides sont tracés en bleu et les points exclus en rouge.
+   - Les axes et la grille sont ajoutés pour une meilleure lisibilité.
 
-Les axes et la grille sont ajoutés pour une meilleure lisibilité.
+---
 
-Résultats Visuels
+## Instructions d'Utilisation
 
-Diagramme QAM pour 
+### Prérequis
 
+- Python 3.x
+- Bibliothèques nécessaires : `matplotlib`, `numpy`
 
+### Instructions
 
-Points bleus : Symboles valides utilisés pour la modulation.
-
-Points rouges : Symboles exclus selon les règles définies.
-
-Exemple de Sortie du Terminal
-
-
-
-Le terminal affiche les dimensions de la grille et les exclusions pour chaque puissance :
-
-Puissance | Lignes | Colonnes | Soustraction
--------------------------------------------
-    2     |   2    |    2     |      0     
-    3     |   4    |    4     |      8     
-    4     |   4    |    4     |      0     
-    5     |   6    |    6     |      4     
-    6     |   8    |    8     |      0     
-    7     |  12    |   12     |     16     
-    9     |  24    |   24     |     64     
-
-Utilisation
-
-Prérequis
-
-Python 3.x
-
-Bibliothèques nécessaires : matplotlib, numpy
-
-Instructions
-
-Clonez ce dépôt ou téléchargez les fichiers source.
-
-Installez les dépendances nécessaires via pip :
-
-pip install matplotlib numpy
-
-Exécutez le script principal :
+1. Clonez ce dépôt ou téléchargez les fichiers source.
+2. Installez les dépendances nécessaires via pip :
+   ```bash
+   pip install matplotlib numpy
+   Exécutez le script principal :
 
 python script_qam.py
 
@@ -112,7 +102,20 @@ Points rouges : Les symboles exclus pour maintenir la symétrie ou optimiser la 
 
 Grille : La structure sous-jacente de la constellation.
 
+Exemple de Fonctionnement
+
+Sortie dans le Terminal
+
+
+
+Cette capture montre les dimensions calculées de la grille et les exclusions pour les puissances .
+
+Diagramme pour 
+
+
+
+Ce diagramme met en évidence les symboles valides et exclus sur une grille 4x4.
+
 Auteur
 
 Ce script a été conçu pour explorer les constellations QAM et leurs ajustements spécifiques. Si vous avez des questions ou des suggestions, n'hésitez pas à ouvrir une issue ou à soumettre une pull request.
-
