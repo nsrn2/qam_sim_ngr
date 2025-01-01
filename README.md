@@ -92,15 +92,15 @@ Cela affichera les résultats calculés pour chaque puissance et générera les 
 
 ## Axes :
 
-# L'axe horizontal représente la composante en phase (In-Phase, I).
+#### L'axe horizontal représente la composante en phase (In-Phase, I).
 
-# L'axe vertical représente la composante quadrature (Quadrature, Q).
+#### L'axe vertical représente la composante quadrature (Quadrature, Q).
 
-# Points bleus : Les symboles disponibles pour la transmission.
+#### Points bleus : Les symboles disponibles pour la transmission.
 
-# Points rouges : Les symboles exclus pour maintenir la symétrie ou optimiser la modulation.
+#### Points rouges : Les symboles exclus pour maintenir la symétrie ou optimiser la modulation.
 
-# Grille : La structure sous-jacente de la constellation.
+#### Grille : La structure sous-jacente de la constellation.
 
 
 Ce diagramme met en évidence les symboles valides et exclus sur une grille 4x4.
