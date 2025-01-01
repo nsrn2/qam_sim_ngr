@@ -7,13 +7,13 @@ Ce projet Python génère des diagrammes de constellations QAM (Quadrature Ampli
 ## Aperçu du Projet
 
 ### Diagramme QAM pour \( p = 3 \)
-![Diagramme QAM \( p = 3 \)](qam_p=3_plot.jpg)
+![Diagramme QAM \( p = 3 \)](qam%20p%20%3D%203%20plot.jpg)
 
 - **Points bleus** : Symboles valides utilisés pour la modulation.
 - **Points rouges** : Symboles exclus selon les règles définies.
 
 ### Exemple de Sortie du Terminal
-![Sortie Terminal](terminal_output.jpg)
+![Sortie Terminal](terminal%20output.jpg))
 
 Le terminal affiche les dimensions de la grille et les exclusions pour chaque puissance.
 
@@ -88,34 +88,23 @@ python script_qam.py
 
 Cela affichera les résultats calculés pour chaque puissance et générera les diagrammes correspondants.
 
-Comment Lire un Diagramme QAM
+### Comment Lire un Diagramme QAM
 
-Axes :
+## Axes :
 
-L'axe horizontal représente la composante en phase (In-Phase, I).
+# L'axe horizontal représente la composante en phase (In-Phase, I).
 
-L'axe vertical représente la composante quadrature (Quadrature, Q).
+# L'axe vertical représente la composante quadrature (Quadrature, Q).
 
-Points bleus : Les symboles disponibles pour la transmission.
+# Points bleus : Les symboles disponibles pour la transmission.
 
-Points rouges : Les symboles exclus pour maintenir la symétrie ou optimiser la modulation.
+# Points rouges : Les symboles exclus pour maintenir la symétrie ou optimiser la modulation.
 
-Grille : La structure sous-jacente de la constellation.
-
-Exemple de Fonctionnement
-
-Sortie dans le Terminal
-
-
-
-Cette capture montre les dimensions calculées de la grille et les exclusions pour les puissances .
-
-Diagramme pour 
-
+# Grille : La structure sous-jacente de la constellation.
 
 
 Ce diagramme met en évidence les symboles valides et exclus sur une grille 4x4.
 
-Auteur
+### Auteur
 
 Ce script a été conçu pour explorer les constellations QAM et leurs ajustements spécifiques. Si vous avez des questions ou des suggestions, n'hésitez pas à ouvrir une issue ou à soumettre une pull request.
